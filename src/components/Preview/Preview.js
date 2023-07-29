@@ -34,7 +34,7 @@ function Preview({ fields, setName, title, setTitle, setFields, setPreview }) {
   return (
     <form
       onSubmit={saveForm}
-      className="w-5/6 lg:w-3/6 p-6 m-6 bg-[#282831] border border-[#4d4d4d] rounded-lg shadow "
+      className="w-full lg:w-3/6 p-6 m-6 bg-[#282831] border border-[#4d4d4d] rounded-lg shadow "
     >
       <p className="font-normal text-center text-blue-500 text-[2rem]">
         {title}

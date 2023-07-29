@@ -35,7 +35,7 @@ function ViewForm() {
       {fields.length>0&&
         <form
           onSubmit={saveForm}
-          className="w-5/6 lg:w-3/6 p-6 m-6  rounded-lg shadow bg-[#282831] border border-[#4d4d4d]"
+          className="w-full lg:w-3/6 p-6 m-6  rounded-lg shadow bg-[#282831] border border-[#4d4d4d]"
         >
           <p className="font-normal text-center text-blue-500 text-[2rem]">
             {title}
