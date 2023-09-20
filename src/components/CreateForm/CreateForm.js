@@ -19,6 +19,16 @@ function CreateForm() {
   const [dob, setDob] = useState("");
   const [age, setAge] = useState("");
   const [gender, setGender] = useState("");
+  const handleChange1 = event => {
+    const result = event.target.value.replace(/[^a-z]/gi, '');
+
+    setFirstName(result);
+  };
+  const handleChange2 = event => {
+    const result = event.target.value.replace(/[^a-z]/gi, '');
+
+    setLastName(result);
+  };
   const submitHandler = (e) => {
     e.preventDefault();
     axios.post('https://formbackend-cikr.onrender.com/forms',{firstName,lastName,email,country,state,city,dob,age,gender}).then(data=>{
@@ -49,7 +59,7 @@ function CreateForm() {
                   <input
                     className="border border-gray-600 focus:border-blue-500 focus:outline-none p-3 after:border-color-blue-500 rounded text-white bg-[#46464f] placeholder:text-white-500"
                     type="text"
-                    onChange={(e) => setFirstName(e.target.value)}
+                    onChange={handleChange1}
                     value={firstName}
                     placeholder="firstName"
                     required
@@ -61,7 +71,7 @@ function CreateForm() {
                     required
                     className="border border-gray-600 focus:border-blue-500 focus:outline-none rounded p-3 text-white bg-[#46464f] placeholder:text-white-500"
                     type="text"
-                    onChange={(e) => setLastName(e.target.value)}
+                    onChange={handleChange2}
                     value={lastName}
                     placeholder="lastName"
                   />
