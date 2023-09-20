@@ -21,7 +21,7 @@ function CreateForm() {
   const [gender, setGender] = useState("");
   const submitHandler = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:8000/forms',{firstName,lastName,email,country,state,city,dob,age,gender}).then(data=>{
+    axios.post('https://formbackend-cikr.onrender.com/forms',{firstName,lastName,email,country,state,city,dob,age,gender}).then(data=>{
      
       alert("user Created Successfully!")
     }).catch(e=>{

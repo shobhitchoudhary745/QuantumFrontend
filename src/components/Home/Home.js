@@ -12,7 +12,7 @@ function Home() {
 
   const formDatas = () => {
     axios
-      .get("http://localhost:8000/getForm")
+      .get("https://formbackend-cikr.onrender.com/getForm")
       .then((data) => {
         setViewForm(data.data.formData);
       })
