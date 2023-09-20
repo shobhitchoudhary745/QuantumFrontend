@@ -12,7 +12,7 @@ function Home() {
 
   const formDatas = () => {
     axios
-      .get("https://apis-2fuc.onrender.com/getForm")
+      .get("http://localhost:8000/getForm")
       .then((data) => {
         setViewForm(data.data.formData);
       })
@@ -21,26 +21,10 @@ function Home() {
       });
   };
 
-  const deleteForm = (id) => {
-    const confirm = window.confirm("Are you sure you want to delete form?");
-    if (confirm) {
-      axios
-        .delete(`https://apis-2fuc.onrender.com/deleteForm/${id}`)
-        .then((data) => {
-          window.alert("Form Deleted!");
-          let temp = viewForm.filter((res) => {
-            return res._id != id;
-          });
-          setViewForm(temp);
-        })
-        .catch((error) => {
-          window.alert("Something went Wrong!");
-        });
-    }
-  };
+
 
   const searchForms = (e) => {
-    let arr = viewForm.filter(data=>data.title.toLowerCase().includes(e.target.value.toLowerCase()));
+    let arr = viewForm.filter(data=>(data.firstName+" "+data.lastName).toLowerCase().includes(e.target.value.toLowerCase())||data.country.toLowerCase().includes(e.target.value.toLowerCase())||data.email.toLowerCase().includes(e.target.value.toLowerCase()));
     setSearchArr(arr);
   };
 
@@ -52,10 +36,10 @@ function Home() {
             onChange={searchForms}
             type="text"
             className="border w-full md:w-4/6 lg:w-4/6 my-6 border-gray-600 focus:border-blue-500 focus:outline-none text-white bg-[#46464f] placeholder:text-white-500 rounded p-3 "
-            placeholder="Search Form By Title"
+            placeholder="Search User By Name or Email"
           />
           <button className="border border-blue-600 my-6 w-full md:w-4/6 lg:w-1/6 text-[1.2rem] bg-blue-500 rounded text-white py-2">
-            <Link to="/create">Create Form +</Link>
+            <Link to="/create">Create User +</Link>
           </button>
         </div>
         <div className="relative w-5/6 m-6 overflow-x-auto shadow-md sm:rounded-lg">
@@ -67,19 +51,28 @@ function Home() {
                     #
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Title
+                    Name
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Created On
+                    Email
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Questions
+                    Country
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    View Forms
+                    State
                   </th>
                   <th scope="col" className="px-6 py-3">
-                    Action
+                    City
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    Dob
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    Age
+                  </th>
+                  <th>
+                    Gender
                   </th>
                 </tr>
               </thead>
@@ -89,32 +82,17 @@ function Home() {
                     <tr key={index} className=" border-b bg-gray-900 border-gray-700">
                       <td className="px-6 py-4">{index + 1}</td>
                       <td scope="row" className="px-6 py-4">
-                        {data.title}
+                        {data.firstName+" "+data.lastName}
                       </td>
                       <td className="px-6 py-4">
-                        {data.createdAt.toString().split("T")[0]}
+                        {data.email}
                       </td>
-                      <td className="px-6 py-4"> {data.fields.length}</td>
-                      <td className="px-6 py-4">
-                        <button className="hover:underline text-blue-500">
-                          <Link
-                            to={{
-                              pathname: "view/" + data._id,
-                            }}
-                          >
-                            View
-                          </Link>
-                        </button>
-                      </td>
-                      <td className="px-6 py-4">
-                        <a
-                          href="#"
-                          className="font-medium text-red-500 hover:underline"
-                          onClick={() => deleteForm(data._id)}
-                        >
-                          Delete
-                        </a>
-                      </td>
+                      <td className="px-6 py-4"> {data.country}</td>
+                      <td className="px-6 py-4"> {data.state}</td>
+                      <td className="px-6 py-4"> {data.city}</td>
+                      <td className="px-6 py-4"> {data.dob}</td>
+                      <td className="px-6 py-4"> {data.age}</td>
+                      <td className="px-6 py-4"> {data.gender}</td>
                     </tr>
                   );
                 })}
