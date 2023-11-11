@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/QuantumFrontendnpm%20i%20gh-pages/static/css/main.e373e29c.css",
-    "main.js": "/QuantumFrontendnpm%20i%20gh-pages/static/js/main.4095299e.js",
-    "index.html": "/QuantumFrontendnpm%20i%20gh-pages/index.html",
-    "main.e373e29c.css.map": "/QuantumFrontendnpm%20i%20gh-pages/static/css/main.e373e29c.css.map",
-    "main.4095299e.js.map": "/QuantumFrontendnpm%20i%20gh-pages/static/js/main.4095299e.js.map"
+    "main.css": "/QuantumFrontend/static/css/main.e373e29c.css",
+    "main.js": "/QuantumFrontend/static/js/main.4095299e.js",
+    "index.html": "/QuantumFrontend/index.html",
+    "main.e373e29c.css.map": "/QuantumFrontend/static/css/main.e373e29c.css.map",
+    "main.4095299e.js.map": "/QuantumFrontend/static/js/main.4095299e.js.map"
   },
   "entrypoints": [
     "static/css/main.e373e29c.css",
