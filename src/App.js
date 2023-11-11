@@ -1,19 +1,19 @@
-import "./App.css";
-import { HashRouter, Route, Routes } from "react-router-dom";
-import Home from "./components/Home/Home";
-import CreateForm from "./components/CreateForm/CreateForm";
+import React from 'react'
+import { HashRouter, Route,Routes } from 'react-router-dom'
+import Login from './routers/Login'
+import Signup from './routers/Signup'
 
-function App() {
-  return (
-    <div>
+import Main from './routers/Main'
+function App(){
+    return(
       <HashRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/create" element={<CreateForm />} />
+          <Route exact path="/" element={<Login />} />
+          <Route exact path="/signup" element={<Signup />} />
+          <Route exact path="/main" element={<Main />}/>
         </Routes>
-      </HashRouter>
-    </div>
-  );
+    </HashRouter> 
+    )
 }
 
 export default App;
