@@ -36,7 +36,7 @@ function Signup() {
 
     axios
       .post(
-        `http://localhost:4000/users`,
+        `https://quantumbackend-9wc8.onrender.com/users`,
         {
           Name,
           email,

@@ -10,7 +10,7 @@ function Main() {
   useEffect(() => {
     if (!localStorage.getItem("token")) navigate("/");
     axios
-      .get(`http://localhost:4000/users`, {
+      .get(`https://quantumbackend-9wc8.onrender.com/users`, {
         "Content-Type": "application/json",
       })
       .then((data) => {
